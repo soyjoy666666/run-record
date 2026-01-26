@@ -45,14 +45,14 @@ export default function ListPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 px-4 py-12 dark:bg-black">
-      <main className="w-full max-w-xl rounded-3xl border border-zinc-200 bg-white/70 p-8 shadow-lg backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/70">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-green-50 via-green-100 to-emerald-100 px-4 py-12 dark:from-green-950 dark:via-green-900 dark:to-emerald-900">
+      <main className="w-full max-w-xl rounded-3xl border border-green-200 bg-white/70 p-8 shadow-lg backdrop-blur dark:border-green-800 dark:bg-green-900/70">
         <header className="mb-8 flex items-baseline justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
+            <h1 className="text-2xl font-semibold tracking-tight text-green-900 dark:text-green-50">
               ベストタイム一覧
             </h1>
-            <p className="mt-1 text-xs text-zinc-500">
+            <p className="mt-1 text-xs text-green-600 dark:text-green-400">
               距離ごとの自己ベストタイム（初期値は0）
             </p>
           </div>
@@ -62,12 +62,12 @@ export default function ListPage() {
           {times.map((item) => (
             <div
               key={item.distance}
-              className="flex items-center justify-between gap-3 rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm dark:border-zinc-700 dark:bg-zinc-900"
+              className="flex items-center justify-between gap-3 rounded-2xl border border-green-200 bg-green-50 px-4 py-3 text-sm dark:border-green-700 dark:bg-green-900"
             >
-              <span className="font-medium text-zinc-800 dark:text-zinc-100">
+              <span className="font-medium text-green-800 dark:text-green-100">
                 {item.distance}
               </span>
-              <div className="flex items-center gap-2 text-xs text-zinc-500">
+              <div className="flex items-center gap-2 text-xs text-green-600 dark:text-green-400">
                 <label className="flex items-center gap-1">
                   <input
                     type="number"
@@ -77,10 +77,10 @@ export default function ListPage() {
                     onChange={(e) =>
                       handleChange(item.distance, "hours", e.target.value)
                     }
-                    className="w-14 rounded-lg border border-zinc-300 bg-white px-2 py-1 text-right font-mono text-zinc-700 shadow-sm outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-200 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100"
+                    className="w-14 rounded-lg border border-green-300 bg-white px-2 py-1 text-right font-mono text-green-700 shadow-sm outline-none transition focus:border-green-500 focus:ring-2 focus:ring-green-200 dark:border-green-700 dark:bg-green-800 dark:text-green-100"
                     aria-label={`${item.distance}の時間（時）`}
                   />
-                  <span className="text-zinc-500">h</span>
+                  <span className="text-green-600 dark:text-green-400">h</span>
                 </label>
                 <label className="flex items-center gap-1">
                   <input
@@ -92,10 +92,10 @@ export default function ListPage() {
                     onChange={(e) =>
                       handleChange(item.distance, "minutes", e.target.value)
                     }
-                    className="w-14 rounded-lg border border-zinc-300 bg-white px-2 py-1 text-right font-mono text-zinc-700 shadow-sm outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-200 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100"
+                    className="w-14 rounded-lg border border-green-300 bg-white px-2 py-1 text-right font-mono text-green-700 shadow-sm outline-none transition focus:border-green-500 focus:ring-2 focus:ring-green-200 dark:border-green-700 dark:bg-green-800 dark:text-green-100"
                     aria-label={`${item.distance}の時間（分）`}
                   />
-                  <span className="text-zinc-500">m</span>
+                  <span className="text-green-600 dark:text-green-400">m</span>
                 </label>
                 <label className="flex items-center gap-1">
                   <input
@@ -107,10 +107,10 @@ export default function ListPage() {
                     onChange={(e) =>
                       handleChange(item.distance, "seconds", e.target.value)
                     }
-                    className="w-14 rounded-lg border border-zinc-300 bg-white px-2 py-1 text-right font-mono text-zinc-700 shadow-sm outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-200 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100"
+                    className="w-14 rounded-lg border border-green-300 bg-white px-2 py-1 text-right font-mono text-green-700 shadow-sm outline-none transition focus:border-green-500 focus:ring-2 focus:ring-green-200 dark:border-green-700 dark:bg-green-800 dark:text-green-100"
                     aria-label={`${item.distance}の時間（秒）`}
                   />
-                  <span className="text-zinc-500">s</span>
+                  <span className="text-green-600 dark:text-green-400">s</span>
                 </label>
               </div>
             </div>
