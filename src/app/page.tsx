@@ -29,6 +29,15 @@ export default function Home() {
             <span className="text-lg leading-none">→</span>
           </Link>
         </div>
+        <div className="mt-6">
+          <Link
+            href="/race"
+            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 px-8 py-4 text-sm font-semibold text-white shadow-2xl shadow-green-500/50 transition-all hover:-translate-y-1 hover:scale-105 hover:shadow-green-500/70"
+          >
+            レースページへ
+            <span className="text-lg leading-none">→</span>
+          </Link>
+        </div>
       </main>
     </div>
   );
