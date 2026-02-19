@@ -10,9 +10,15 @@ export default async function RaceResultPage() {
 
   // 分割代入でdataとerrorを取得
   const { data, error } = await supabase
-    .from('race_result')
-    .select('*');
-  // .eq('race_id', 1);
+  .from('race_result')
+  .select(`
+    net_time,
+    race_id,
+    member_id,
+    created_at,
+    race:race_info!inner ( name, held_at )
+  `)
+  .order('created_at', { ascending: false })
 
   if (error) {
     return <div>エラー: {error.message}</div>;
@@ -34,19 +40,31 @@ export default async function RaceResultPage() {
     parts.push(`${s}秒`);
 
     return parts.join(' ');
-  };
+  };  
 
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">レース結果一覧</h1>
-      <ul className="space-y-2">
-        {data.map((result, index) => (
-          <li key={index} className="p-3 bg-gray-50 rounded border border-gray-200">
-            <div className="font-semibold text-gray-900">Race ID: {result.race_id}</div>
-            <div className="text-gray-900">Net Time: {formatTime(result.net_time)}</div>
-          </li>
-        ))}
-      </ul>
+      <table className="min-w-full border border-gray-200 bg-white">
+        <thead className="bg-gray-100">
+          <tr>
+            {/* <th className="px-4 py-2 text-left text-gray-700 border-b">Race ID</th> */}
+            <th className="px-4 py-2 text-left text-gray-700 border-b">開催日</th>
+            <th className="px-4 py-2 text-left text-gray-700 border-b">大会名</th>
+            <th className="px-4 py-2 text-left text-gray-700 border-b">記録</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((result, index) => (
+            <tr key={index} className="odd:bg-gray-50">
+              {/* <td className="px-4 py-2 border-b text-gray-900">{result.race_id}</td> */}
+              <td className="px-4 py-2 border-b text-gray-900">{result.race.held_at}</td>
+              <td className="px-4 py-2 border-b text-gray-900">{result.race.name}</td>
+              <td className="px-4 py-2 border-b text-gray-900">{formatTime(result.net_time)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
